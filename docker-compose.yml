@@ -3,10 +3,10 @@ services:
     image: ghcr.io/zhf883680/ws-scrcpy:latest
     container_name: ws-scrcpy
     restart: unless-stopped
-    ports:
-      - "${WS_SCRCPY_PORT:-8000}:8000"
+    network_mode: host
     environment:
       ADB_DEVICE: ${ADB_DEVICE:-}
+      ADB_MDNS_AUTO_CONNECT: ${ADB_MDNS_AUTO_CONNECT:-adb-tls-connect}
     devices:
       - /dev/bus/usb:/dev/bus/usb
     device_cgroup_rules:

@@ -27,6 +27,9 @@ ADB authorization keys are stored in the `adb-keys` volume.
 Remove the `devices` entry from `docker-compose.yml` when USB passthrough is not
 available or when the Android device is connected over Wi-Fi.
 
+The Compose example uses host networking on Linux so ADB mDNS can discover
+wireless-debugging endpoints. The web UI listens directly on host port `8000`.
+
 For Android 11 and later, pair once and then connect:
 
 ```sh
