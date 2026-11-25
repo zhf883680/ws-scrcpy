@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.7
 
-FROM node:22-bookworm-slim AS build
+FROM node:22-trixie-slim AS build
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -23,7 +23,7 @@ COPY . .
 RUN npm run dist \
     && npm prune --omit=dev --omit=optional
 
-FROM node:22-bookworm-slim AS runtime
+FROM node:22-trixie-slim AS runtime
 
 ENV DEBIAN_FRONTEND=noninteractive \
     NODE_ENV=production
@@ -34,7 +34,9 @@ RUN apt-get update \
         ca-certificates \
         tini \
         usbutils \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && adb version \
+    && adb help 2>&1 | grep -q "pair HOST"
 
 WORKDIR /app
 
