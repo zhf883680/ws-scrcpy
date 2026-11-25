@@ -1,5 +1,8 @@
 # Docker image
 
+For the complete deployment, wireless ADB, and iPhone player notes, see
+[operations-zh.md](operations-zh.md).
+
 The `Build and publish GHCR image` workflow builds the image on GitHub Actions
 and publishes it to:
 
