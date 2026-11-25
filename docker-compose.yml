@@ -1,0 +1,18 @@
+services:
+  ws-scrcpy:
+    image: ghcr.io/zhf883680/ws-scrcpy:latest
+    container_name: ws-scrcpy
+    restart: unless-stopped
+    ports:
+      - "${WS_SCRCPY_PORT:-8000}:8000"
+    environment:
+      ADB_DEVICE: ${ADB_DEVICE:-}
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    volumes:
+      - adb-keys:/root/.android
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  adb-keys:
