@@ -9,6 +9,8 @@ services:
       ADB_DEVICE: ${ADB_DEVICE:-}
     devices:
       - /dev/bus/usb:/dev/bus/usb
+    device_cgroup_rules:
+      - "c 189:* rwm"
     volumes:
       - adb-keys:/root/.android
     security_opt:

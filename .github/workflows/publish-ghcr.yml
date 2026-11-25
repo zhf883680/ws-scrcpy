@@ -4,6 +4,21 @@ on:
   push:
     branches:
       - master
+    paths:
+      - ".dockerignore"
+      - ".github/workflows/publish-ghcr.yml"
+      - ".npmrc"
+      - "Dockerfile"
+      - "build.config.override.json"
+      - "docker/**"
+      - "package-lock.json"
+      - "package.json"
+      - "scripts/**"
+      - "src/**"
+      - "tsconfig.json"
+      - "typings/**"
+      - "vendor/**"
+      - "webpack/**"
     tags:
       - "v*"
   pull_request:

@@ -4,6 +4,7 @@
 build
 dist
 docs
+docker-compose.yml
 logs
 node_modules
 *.log
