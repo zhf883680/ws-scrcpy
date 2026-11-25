@@ -16,6 +16,7 @@ RUN apt-get update \
 WORKDIR /app
 
 COPY package.json package-lock.json .npmrc ./
+COPY scripts/setup-appium.js ./scripts/setup-appium.js
 RUN npm ci --omit=optional
 
 COPY . .
